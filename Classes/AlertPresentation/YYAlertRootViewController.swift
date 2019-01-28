@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum YYAlertCellType: String {
+public enum YYAlertCellType: String {
     case normal = "Nomal"
     case text = "Text"
     case loading = "Loading"
@@ -17,35 +17,35 @@ enum YYAlertCellType: String {
     case alert = "Alert"
 }
 
-class YYAlertRootViewController: UITableViewController {
+open class YYAlertRootViewController: UITableViewController {
     
     var dataSource: [YYAlertCellType] = [.normal, .text, .loading, .bottom, .sheet, .alert]
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         tableView.isScrollEnabled = true
         tableView.register(UINib(nibName: "YYAlertRootCell", bundle: nil), forCellReuseIdentifier: "YYAlertRootCell")
     }
 
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "YYAlertRootCell")
         cell?.textLabel?.text = dataSource[indexPath.row].rawValue
         return cell!
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = dataSource[indexPath.row]
         switch type {
         case .normal:

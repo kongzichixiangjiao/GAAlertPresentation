@@ -8,17 +8,17 @@
 
 import UIKit
 
-class PXPhotoSheetViewController: YYPresentationBaseViewController {
+open class PXPhotoSheetViewController: YYPresentationBaseViewController {
 
     @IBOutlet weak var topButton: UIButton!
     @IBOutlet weak var middleButton: UIButton!
     @IBOutlet weak var cancleButton: UIButton!
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewWillLayoutSubviews() {
+    override open func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
 //        topButton.yy_button_circularBead(byRoundingCorners: [.topRight, .topLeft], cornerRadii: CGSize(width: 13, height: 13))
@@ -26,7 +26,7 @@ class PXPhotoSheetViewController: YYPresentationBaseViewController {
 //        cancleButton.yy_button_circularBead(byRoundingCorners: [.topRight, .topLeft, .bottomLeft, .bottomRight], cornerRadii: CGSize(width: 13, height: 13))
     }
     
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     

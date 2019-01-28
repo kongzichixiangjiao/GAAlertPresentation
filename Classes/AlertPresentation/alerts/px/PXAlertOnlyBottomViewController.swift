@@ -8,22 +8,22 @@
 
 import UIKit
 
-class PXAlertOnlyBottomViewController: YYPresentationBaseViewController {
+open class PXAlertOnlyBottomViewController: YYPresentationBaseViewController {
 
     @IBOutlet weak var contentLabel: UILabel!
     
     var text: String =  ""
     
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         contentLabel.text = text  
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 

@@ -8,15 +8,15 @@
 
 import UIKit
 
-class YYAlertLoadingViewController: YYPresentationBaseViewController {
+open class YYAlertLoadingViewController: YYPresentationBaseViewController {
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

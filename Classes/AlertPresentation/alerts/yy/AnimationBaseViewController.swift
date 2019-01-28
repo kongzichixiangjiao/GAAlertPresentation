@@ -23,18 +23,18 @@ import UIKit
  }
  self.present(vc, animated: true, completion: nil)
  */
-class AnimationBaseViewController: YYPresentationBaseViewController {
+open class AnimationBaseViewController: YYPresentationBaseViewController {
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         isTapBack = false 
     }
 
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.dismiss(animated: true, completion: nil)
         clickedHandler?(2, "")

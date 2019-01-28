@@ -8,15 +8,14 @@
 
 import UIKit
 
-class YYAlertTextViewController: YYPresentationBaseViewController {
+open class YYAlertTextViewController: YYPresentationBaseViewController {
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }

@@ -8,19 +8,19 @@
 
 import UIKit
 
-enum ShareTypesType: Int {
+public enum ShareTypesType: Int {
     case friend = 2, weixin = 1 , qq = 4
 }
 
-class PXShareViewController: YYPresentationBaseViewController {
+public class PXShareViewController: YYPresentationBaseViewController {
     public typealias ClickedShareView = (_ tag: Int) -> ()
     public var clickedShareHandler: ClickedShareView?
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
