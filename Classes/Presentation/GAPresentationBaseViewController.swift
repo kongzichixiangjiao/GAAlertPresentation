@@ -1,5 +1,5 @@
 //
-//  YYPresentationBaseViewController.swift
+//  GAPresentationBaseViewController.swift
 //  YE
 //
 //  Created by 侯佳男 on 2017/12/18.
@@ -9,15 +9,15 @@
 import UIKit
 
 /*
-     var alertClickedHandler: YYPresentationBaseViewController.ClickedHandler = {
+     var alertClickedHandler: GAPresentationBaseViewController.ClickedHandler = {
          tag in
          print(tag)
      }
  */
 
 /*
-     let d = YYPresentationDelegate(animationType: <#PresentationAnimationType#>)
-     let vc = <#YYPresentationBaseViewController#>(nibName: "<#YYPresentationBaseViewController#>", bundle: nil, delegate: d)
+     let d = GAPresentationDelegate(animationType: <#PresentationAnimationType#>)
+     let vc = <#GAPresentationBaseViewController#>(nibName: "<#GAPresentationBaseViewController#>", bundle: nil, delegate: d)
      vc.clickedHandler = {
         tag in
         print(tag)
@@ -25,7 +25,7 @@ import UIKit
      self.present(vc, animated: true, completion: nil)
  */
 
-open class YYPresentationBaseViewController: UIViewController {
+open class GAPresentationBaseViewController: UIViewController {
     
     // 点击弹框按钮的闭包
     public typealias ClickedHandler = (_ tag: Int, _ model: Any?) -> ()
@@ -39,7 +39,7 @@ open class YYPresentationBaseViewController: UIViewController {
     public var duration: Double = 0 // 多长时间 只有执行mTimer方法
     private var mTimer: Timer?
     
-    private var mDelegate: YYPresentationDelegate?
+    private var mDelegate: GAPresentationDelegate?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -54,11 +54,11 @@ open class YYPresentationBaseViewController: UIViewController {
         dismiss()
     }
     
-    convenience public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, delegate: YYPresentationDelegate?) {
+    convenience public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, delegate: GAPresentationDelegate?) {
         self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.modalPresentationStyle = .custom
         guard let d = delegate else {
-            let de = YYPresentationDelegate(animationType: .middle)
+            let de = GAPresentationDelegate(animationType: .middle)
             self.transitioningDelegate = de
             self.mDelegate = de
             return
@@ -93,7 +93,7 @@ open class YYPresentationBaseViewController: UIViewController {
             completion?()
         }
         guard let d = mDelegate else {
-            let de = YYPresentationDelegate(animationType: .middle)
+            let de = GAPresentationDelegate(animationType: .middle)
             self.transitioningDelegate = de
             self.dismiss(animated: true) {
                 completion?()
@@ -102,7 +102,7 @@ open class YYPresentationBaseViewController: UIViewController {
             return
         }
         
-        let de = YYPresentationDelegate(animationType: d.presentationAnimationType)
+        let de = GAPresentationDelegate(animationType: d.presentationAnimationType)
         self.transitioningDelegate = de
         self.dismiss(animated: true) {
             completion?()

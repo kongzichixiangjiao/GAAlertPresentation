@@ -1,5 +1,5 @@
 //
-//  YYPresentationAnimationViewController.swift
+//  GAPresentationAnimationViewController.swift
 //  YE
 //
 //  Created by 侯佳男 on 2017/12/18.
@@ -9,11 +9,11 @@
 import UIKit
 
 
-class YYPresentationAnimationViewController: NSObject, UIViewControllerAnimatedTransitioning {
-    private var transitionType: YYTransitionType
+class GAPresentationAnimationViewController: NSObject, UIViewControllerAnimatedTransitioning {
+    private var transitionType: GATransitionType
     private var presentationAnimationType: PresentationAnimationType
     
-    init(type: YYTransitionType, presentationAnimationType: PresentationAnimationType = .downShow) {
+    init(type: GATransitionType, presentationAnimationType: PresentationAnimationType = .downShow) {
         self.transitionType = type
         self.presentationAnimationType = presentationAnimationType
         super.init()
@@ -72,6 +72,8 @@ class YYPresentationAnimationViewController: NSObject, UIViewControllerAnimatedT
             return
         case .top:
             break
+        case .right:
+            animationTransitionWithRight(operation: .dismiss, transitionContext: transitionContext, containerView: containerView, fromView: fromView, toView: toView)
         }
     }
     
@@ -100,6 +102,8 @@ class YYPresentationAnimationViewController: NSObject, UIViewControllerAnimatedT
             return
         case .top:
             break
+        case .right:
+            animationTransitionWithRight(operation: .present, transitionContext: transitionContext, containerView: containerView, fromView: fromView, toView: toView)
         }
     }
     
@@ -219,8 +223,39 @@ class YYPresentationAnimationViewController: NSObject, UIViewControllerAnimatedT
         }
     }
     
+    func animationTransitionWithRight(operation: ModalOperation, transitionContext: UIViewControllerContextTransitioning, containerView: UIView, fromView: UIView?, toView: UIView?) {
+        guard let toView = toView, let fromView = fromView else {
+            return
+        }
+        let duration = transitionDuration(using: transitionContext)
+        switch operation {
+        case .present:
+            containerView.addSubview(toView)
+            toView.transform = CGAffineTransform(translationX: containerView.frame.width, y: 0)
+            
+            UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+                toView.transform = CGAffineTransform.identity
+            }, completion: { finished in
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            })
+            break
+        case .dismiss:
+            containerView.addSubview(fromView)
+            fromView.subviews.first?.transform = CGAffineTransform(translationX: containerView.frame.width, y: 0)
+           
+            UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+                fromView.transform = CGAffineTransform(translationX: containerView.frame.width, y: 0)
+            }, completion: { finished in
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            })
+            break
+        }
+    }
+    
     func animationEnded(_ transitionCompleted: Bool) {
+        #if DEBUG
         print("animationEnded")
+        #endif
     }
 }
 

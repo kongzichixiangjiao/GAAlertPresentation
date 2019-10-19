@@ -1,5 +1,5 @@
 //
-//  YYPresentationController.swift
+//  GAPresentationController.swift
 //  YE
 //
 //  Created by 侯佳男 on 2017/12/16.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class YYPresentationController: UIPresentationController {
-
+class GAPresentationController: UIPresentationController {
+    
     var presentationAnimationType: PresentationAnimationType = .none
     var isShowMaskView: Bool = true
     var maskViewColor: UIColor = UIColor.clear
@@ -76,7 +76,10 @@ class YYPresentationController: UIPresentationController {
         } else if presentationAnimationType == .alert {
             present.bounds = CGRect(x: 0, y: 0, width: cW, height: pH)
             present.center = containerView!.center
-        }  else if presentationAnimationType == .alert {
+        } else if presentationAnimationType == .alert {
+            present.bounds = CGRect(x: 0, y: 0, width: cW, height: pH)
+            present.center = containerView!.center
+        } else if presentationAnimationType == .right {
             present.bounds = CGRect(x: 0, y: 0, width: cW, height: pH)
             present.center = containerView!.center
         } else {
@@ -88,7 +91,7 @@ class YYPresentationController: UIPresentationController {
     override func containerViewDidLayoutSubviews() {}
     
     deinit {
-        print("YYPresentationController deinit")
+        print("GAPresentationController deinit")
     }
-
+    
 }
