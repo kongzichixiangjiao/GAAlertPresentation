@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true # 是否启用ARCS
   s.platform     = :ios, "9.0" #平台及支持的最低版本
   s.frameworks   = "UIKit", "Foundation" #支持的框架
-  s.swift_version = '5.0'
+  s.swift_version = '4.2'
   # User
   s.author             = { "BY" => "houjianan_110@163.com" } # 作者信息
   s.social_media_url   = "https://github.com/kongzichixiangjiao" # 个人主页

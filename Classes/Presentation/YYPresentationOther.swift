@@ -1,5 +1,5 @@
 //
-//  GAPresentationOther.swift
+//  YYPresentationOther.swift
 //  YE
 //
 //  Created by 侯佳男 on 2017/12/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum GATransitionType{
+enum YYTransitionType{
     case modalTransition(ModalOperation)
 }
 

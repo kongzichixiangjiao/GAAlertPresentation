@@ -1,5 +1,5 @@
 //
-//  GAPresentationController.swift
+//  YYPresentationController.swift
 //  YE
 //
 //  Created by 侯佳男 on 2017/12/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GAPresentationController: UIPresentationController {
+class YYPresentationController: UIPresentationController {
     
     var presentationAnimationType: PresentationAnimationType = .none
     var isShowMaskView: Bool = true
@@ -91,7 +91,7 @@ class GAPresentationController: UIPresentationController {
     override func containerViewDidLayoutSubviews() {}
     
     deinit {
-        print("GAPresentationController deinit")
+        print("YYPresentationController deinit")
     }
     
 }

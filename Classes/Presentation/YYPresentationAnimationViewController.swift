@@ -1,5 +1,5 @@
 //
-//  GAPresentationAnimationViewController.swift
+//  YYPresentationAnimationViewController.swift
 //  YE
 //
 //  Created by 侯佳男 on 2017/12/18.
@@ -9,11 +9,11 @@
 import UIKit
 
 
-class GAPresentationAnimationViewController: NSObject, UIViewControllerAnimatedTransitioning {
-    private var transitionType: GATransitionType
+class YYPresentationAnimationViewController: NSObject, UIViewControllerAnimatedTransitioning {
+    private var transitionType: YYTransitionType
     private var presentationAnimationType: PresentationAnimationType
     
-    init(type: GATransitionType, presentationAnimationType: PresentationAnimationType = .downShow) {
+    init(type: YYTransitionType, presentationAnimationType: PresentationAnimationType = .downShow) {
         self.transitionType = type
         self.presentationAnimationType = presentationAnimationType
         super.init()

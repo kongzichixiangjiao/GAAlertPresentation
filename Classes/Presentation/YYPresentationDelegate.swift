@@ -1,5 +1,5 @@
 //
-//  GAModalTransitionDelegate.swift
+//  YYModalTransitionDeleYYte.swift
 //  YE
 //
 //  Created by 侯佳男 on 2017/12/16.
@@ -8,24 +8,24 @@
 
 import UIKit
 
-open class GAPresentationDelegate: NSObject, UIViewControllerTransitioningDelegate {
+open class YYPresentationDelegate: NSObject, UIViewControllerTransitioningDelegate {
     
     var presentationAnimationType: PresentationAnimationType = .none
     var isShowMaskView: Bool = false
     var maskViewColor: UIColor = UIColor.clear
     
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let transitionType = GATransitionType.modalTransition(.present)
-        return GAPresentationAnimationViewController(type: transitionType, presentationAnimationType: presentationAnimationType)
+        let transitionType = YYTransitionType.modalTransition(.present)
+        return YYPresentationAnimationViewController(type: transitionType, presentationAnimationType: presentationAnimationType)
     }
     
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let transitionType = GATransitionType.modalTransition(.dismiss)
-        return GAPresentationAnimationViewController(type: transitionType, presentationAnimationType: presentationAnimationType)
+        let transitionType = YYTransitionType.modalTransition(.dismiss)
+        return YYPresentationAnimationViewController(type: transitionType, presentationAnimationType: presentationAnimationType)
     }
     
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return GAPresentationController(presentedViewController: presented, presenting: presenting, type: presentationAnimationType, isShowMaskView: isShowMaskView, maskViewColor: maskViewColor)
+        return YYPresentationController(presentedViewController: presented, presenting: presenting, type: presentationAnimationType, isShowMaskView: isShowMaskView, maskViewColor: maskViewColor)
     }
     
     convenience public init(animationType: PresentationAnimationType = .none, isShowMaskView: Bool = false, maskViewColor: UIColor = UIColor.clear) {
