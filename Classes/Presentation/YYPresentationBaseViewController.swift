@@ -81,9 +81,16 @@ open class YYPresentationBaseViewController: UIViewController {
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        if isTapBack {
-            if !isDismiss {
-                dismiss()
+        for touch in touches {
+            guard let v = touch.view else {
+                return
+            }
+            if self.view == v {
+                if isTapBack {
+                    if !isDismiss {
+                        dismiss()
+                    }
+                }
             }
         }
     }
